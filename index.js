@@ -10,6 +10,14 @@ const weather = require('./utilits/weather.js');
 
 const app = express();
 
+var port = process.env.PORT;
+
+if(port=== undefined){
+    port = 3000;
+}
+
+
+
 
 var publicPathDirectory = path.join(__dirname,"./Public");
 var pagesDirectory = path.join(__dirname,"./Pages")
@@ -84,6 +92,6 @@ app.get("*",(request,response)=>{
     })
 })
 
-app.listen(3000,()=>{
+app.listen(port,()=>{
     console.log("Sever is started on port 3000")
 });
